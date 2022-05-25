@@ -1,0 +1,87 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    <title>notice_list</title>
+{% endblock %}
+
+{% block main_area %}
+
+    {% if user.is_authenticated %}
+        {% if user.is_superuser or user.is_staff %}
+            <a class="btn btn-info btn-sm float-right" href="/blog/create_post/"
+               rote="button"><i class="fas fa-pen"></i>&nbsp;&nbsp;New Post</a>
+        {% endif %}
+
+    {% endif %}
+                <h1>
+                    {% if category %} {{ category }} {% endif %}
+                    {% if tag %} with tag '{{ tag }}' {% endif %}
+                게시판</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td></td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성시각</td>
+            <td>Read</td>
+        </tr>
+        </thead>
+        <tbod>
+            {% for p in post_list %}
+            <tr>
+                <th scope="row"></th>
+                <th>{{ p.title }}</th>
+                <th>{{ p.author }}</th>
+                <th>{{ p.create_at }}</th>
+                <th><a href="{{ p.get_absolute_url }}" class="btn">&rarr;</a></th>
+            </tr>
+             {% endfor %}
+        </tbod>
+    </table>
+{#        {% for p in post_list %}#}
+{#                <!-- Blog Post -->#}
+{#                    {% if p.head_image %}#}
+{#                        <img class="rounded-right" src="{{ p.head_image.url }}" alt="Card image cap">#}
+{#                        {% else %}#}
+{#                        <img class="rounded-right" src="https://picsum.photos/seed/{{ p.pk }}/800/200" alt="Card image cap">#}
+{#                    {% endif %}#}
+{##}
+{#                    <div class="card-body">#}
+{#                        <h2 class="card-title">{{ p.title}}</h2>#}
+{#                        {% if p.hook_msg %}#}
+{#                             <p class="card-text">{{ p.hook_msg }}</p>#}
+{#                        {% else %}#}
+{#                            <p class="card-text">{{ p.get_markdown_content | truncatewords_html:45 | safe }}</p>#}
+{#                        {% endif %}#}
+{#                        <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>#}
+{#                        {% if p.tags.exists %}#}
+{#                            <br />#}
+{#                            <i class = "fas fa-tags"></i>#}
+{#                            {% for tag in p.tags.iterator %}#}
+{#                                <a href = {{ tag.get_absolute_url }}> {{ tag }}</a>#}
+{#                            {% endfor %}#}
+{##}
+{#                            <br />    <br />{% endif %}#}
+{##}
+{#                    </div>#}
+{#                    <div class="card-footer text-muted">#}
+{#                        Posted on {{ p.created_at}} by#}
+{#                        <a href="#">{{ p.author }}</a>#}
+{#                    </div>#}
+{#                </table>#}
+{#                {% endfor %}#}
+
+
+                <!-- Pagination -->
+                <ul class="pagination justify-content-center mb-4">
+                    <li class="page-item">
+                        <a class="page-link" href="#">&larr;</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">&rarr;</a>
+                    </li>
+                </ul>
+
+{% endblock %}

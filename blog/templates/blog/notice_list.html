@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    <title>notice_list</title>
+{% endblock %}
+
+{% block main_area %}
+
+    <h4>게시판</h4>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <td></td>
+      <td>게시판 이름</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>
+          <a href="/blog/notice_list/category/자동차/">
+              <h4 style="color:black;">자동차</h4>
+          </a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>
+          <a href="/blog/notice_list/category/바다/">
+              <h4 style="color:black;">바다</h4>
+          </a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">
+          <a href="/blog/notice_list/category/하늘/">
+              <h4 style="color:black;">하늘</h4>
+          </a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td colspan="2">
+          <a href="/blog/notice_list/category/숲/">
+              <h4 style="color:black;">숲</h4>
+          </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

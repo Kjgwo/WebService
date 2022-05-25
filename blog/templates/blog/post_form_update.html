@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Update post - notice_board {% endblock %}
+
+{% block main_area %}
+<h1> Update New Post </h1>
+
+    {{ request.path }}
+<hr/>
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form | crispy }}
+    </table>
+    <button type="submit" class="bin bin-primary float-right">
+        Submit
+    </button>
+
+
+</form>
+
+{% endblock %}

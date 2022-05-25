@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}{% endblock %}
+
+{% block main_area %}
+<h1> 글 쓰기 </h1>
+
+<hr/>
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form | crispy }}
+    </table>
+    </br>
+    <button type="submit" class="bin bin-primary float-right">
+        Submit
+    </button>
+    {{ form.media }}
+
+</form>
+
+{% endblock %}
