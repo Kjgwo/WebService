@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
+from blog.models import Category, Post
+
+
 def about_me(request):
     return render(
         request,
@@ -9,7 +12,11 @@ def about_me(request):
 
 
 def landing(request):
-    return render(
-        request,
-        'single_pages/landing.html'
-    )
+    recent_posts = Post.objects.order_by('-pk')[:3]
+    return render(request, 'single_pages/landing.html',
+                  {
+                      'recent_posts': recent_posts,
+                      'categories': Category.objects.all(),
+                      'count_posts_without_category': Post.objects.filter(category=None).count(),
+
+                  })

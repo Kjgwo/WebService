@@ -116,5 +116,7 @@ def notice_list(request):
         'blog/notice_list.html',
         {
             'posts': posts,
+            'categories': Category.objects.all(),
+            'count_posts_without_category': Post.objects.filter(category=None).count()
         }
     )
