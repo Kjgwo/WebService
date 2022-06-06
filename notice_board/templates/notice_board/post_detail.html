@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'notice_board/base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
     <title>Blog - {{ post.title }}</title>
@@ -7,7 +7,7 @@
         {% block main_area %}
 
             {% if user.is_authenticated and user == post.author %}
-          <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}"
+          <a class="btn btn-info btn-sm float-right" href="/notice_board/update_post/{{ post.pk }}"
                rote="button"><i class="fas fa-pen"></i>&nbsp Update Post</a>
       {% endif %}
       <!-- Post Content Column -->
@@ -82,7 +82,7 @@
 
         {% endif %}
 
-       <a class="btn btn-info btn-sm float-right" href="/blog/notice_list/category/{{ post.category.slug }}/"
+       <a class="btn btn-info btn-sm float-right" href="/notice_board/notice_list/category/{{ post.category.slug }}/"
                rote="button">back</a>
       </div>
         {% endblock %}

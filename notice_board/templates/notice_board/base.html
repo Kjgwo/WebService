@@ -4,13 +4,13 @@
 <head>
     {% block title %}
     {% endblock %}
-        <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'notice_board/bootstrap/bootstrap.min.css' %}" media="screen">
 
     <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    {% include 'blog/navbar.html' %}
+    {% include 'notice_board/navbar.html' %}
 
     <!-- Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel"
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-{% include 'blog/footer.html' %}
+{% include 'notice_board/footer.html' %}
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

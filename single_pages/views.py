@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from blog.models import Category, Post
+from notice_board.models import Category, Post
 
 
 def about_me(request):

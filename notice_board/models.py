@@ -29,7 +29,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/blog/notice_list/category/{self.slug}'
+        return f'/notice_board/notice_list/category/{self.slug}'
 
     class Meta:
         verbose_name_plural: 'categories'
@@ -41,8 +41,8 @@ class Post(models.Model):
 
     hook_msg = models.TextField(blank=True)
 
-    head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
-    attached_file = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
+    head_image = models.ImageField(upload_to='notice_board/images/%Y/%m/%d/', blank=True)
+    attached_file = models.FileField(upload_to='notice_board/files/%Y/%m/%d/', blank=True)
 
     create_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -56,7 +56,7 @@ class Post(models.Model):
         return f'[{self.pk}]{self.title} :: {self.author}'
 
     def get_absolute_url(self):
-        return f'/blog/notice_list/{self.pk}'
+        return f'/notice_board/notice_list/{self.pk}'
 
     def get_file_name(self):
         return os.path.basename(self.attached_file.name)

@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'notice_board/base.html' %}
 
 {% block title %}
     <title>notice_list</title>
@@ -8,7 +8,7 @@
 
     {% if user.is_authenticated %}
         {% if user.is_superuser or user.is_staff %}
-            <a class="btn btn-info btn-sm float-right" href="/blog/create_post/"
+            <a class="btn btn-info btn-sm float-right" href="/notice_board/create_post/"
                rote="button"><i class="fas fa-pen"></i>&nbsp;&nbsp;New Post</a>
         {% endif %}
 

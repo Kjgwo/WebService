@@ -29,7 +29,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['title', 'hook_msg', 'content', 'head_image', 'attached_file', 'category']
 
-    template_name = "blog/post_form_update.html"
+    template_name = "notice_board/post_form_update.html"
 
     def dispatch(self, request, *args, **kwargs):
         current_user = request.user
@@ -52,7 +52,7 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
             form.instance.author = current_user
             return super(PostCreate, self).form_valid(form)
         else:
-            return redirect('/blog/')
+            return redirect('/notice_board/')
 
 
 class PostList(ListView):
@@ -93,7 +93,7 @@ def categories_page(request, slug):
         'post_list': post_list
     }
 
-    return render(request, 'blog/post_list.html', context)
+    return render(request, 'notice_board/post_list.html', context)
 
 
 def tag_page(request, slug):
@@ -106,14 +106,14 @@ def tag_page(request, slug):
         'tag': tag,
         'post_list': post_list
     }
-    return render(request, 'blog/post_list.html', context)
+    return render(request, 'notice_board/post_list.html', context)
 
 
 def notice_list(request):
     posts = Post.objects.all().order_by('-pk')
     return render(
         request,
-        'blog/notice_list.html',
+        'notice_board/notice_list.html',
         {
             'posts': posts,
             'categories': Category.objects.all(),
