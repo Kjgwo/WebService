@@ -1,0 +1,38 @@
+<style>
+    table{
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+{% extends 'notice_board/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main_area %}
+    <h1>전체 글 목록</h1>
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성시각</td>
+        </tr>
+        </thead>
+            {% for post in recent_posts %}
+        <tbody>
+        <tr>
+            <th scope="row"></th>
+            <th>[{{ post.category }}]</th>
+            <th><a href="{{ post.get_absolute_url }}" style="color: black">{{ post.title }}</a></th>
+            <th>{{ post.author }}</th>
+            <th>{{ post.create_at }}</th>
+        </tr>
+        </tbody>
+        {% endfor %}
+        </table>
+{% endblock %}

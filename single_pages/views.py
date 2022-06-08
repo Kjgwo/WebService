@@ -4,18 +4,20 @@ from django.shortcuts import render
 from notice_board.models import Category, Post
 
 
-def about_me(request):
+def all_list(request):
+    recent_posts = Post.objects.order_by('-pk')[:15]
     return render(
         request,
-        'single_pages/about_me.html'
+        'single_pages/all_list.html',
+        {
+            'recent_posts': recent_posts,
+        }
     )
 
 
 def landing(request):
-    recent_posts = Post.objects.order_by('-pk')[:3]
     return render(request, 'single_pages/landing.html',
                   {
-                      'recent_posts': recent_posts,
                       'categories': Category.objects.all(),
                       'count_posts_without_category': Post.objects.filter(category=None).count(),
 

@@ -1,3 +1,13 @@
+<style>
+    table{
+        text-align: center;
+    }
+    p{
+        font-size: 20px;
+        color: black;
+    }
+</style>
+
 {% extends 'notice_board/base.html' %}
 
 {% block title %}
@@ -6,22 +16,20 @@
 
 {% block main_area %}
 
-    <h4>게시판</h4>
+    <h1>게시판</h1>
     <table class="table table-striped">
   <thead>
     <tr>
-      <td></td>
-      <td>게시판 이름</td>
+        <td>게시판 이름</td>
         <td>글 수</td>
     </tr>
   </thead>
   <tbody>
   {% for c in categories %}
     <tr>
-      <th scope="row"></th>
       <td>
           <a href="{{ c.get_absolute_url }}">
-              <h4 style="color:black;">{{ c.name }}</h4>
+              <p>{{ c.name }}</p>
           </a>
       </td>
       <td>
