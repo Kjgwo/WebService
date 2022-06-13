@@ -1,11 +1,10 @@
 {% extends 'notice_board/base.html' %}
 {% load crispy_forms_tags %}
-{% block title %} Update post - notice_board {% endblock %}
+{% block title %} {% endblock %}
 
 {% block main_area %}
-<h1> Update New Post </h1>
+<h1> 글 수정 </h1>
 
-    {{ request.path }}
 <hr/>
 
 
@@ -15,7 +14,7 @@
         {{ form | crispy }}
     </table>
     <button type="submit" class="bin bin-primary float-right">
-        Submit
+        등록
     </button>
 
 
