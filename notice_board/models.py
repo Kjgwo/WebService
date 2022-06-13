@@ -16,7 +16,7 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/notice_list/tag/{self.slug}'
+        return f'/notice_board/tag/{self.slug}'
 
 
 class Category(models.Model):

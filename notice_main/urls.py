@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('notice_board/', include('notice_board.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-
+from django.urls import path, include, re_path
+from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('markdownx/', include('markdownx.urls')),
     path('', include('single_pages.urls')),
     path('accounts/', include('allauth.urls')),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}), # DEBUG = False의 이유로, Debug 모드일 때에는 프로젝트의 url 구조를 알 수 있기 때문에 공개되면 안된다.
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
