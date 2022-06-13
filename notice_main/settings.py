@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vzcofpp(x==g=))txt^!dfh5flxquea8^%h3og0f+ns%s3!x)7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -117,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -152,4 +151,5 @@ SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_DEFAULT_HTTP_PROTOCOL='https'
-LOGIN_REDIRECT_URL='/notice_board/'
+ACCOUNT_LOGOUT_ON_GET = True
+LOGIN_REDIRECT_URL='/'
